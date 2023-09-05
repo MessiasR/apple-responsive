@@ -139,4 +139,39 @@ main {
     display: inline-flex;
     align-items: center;
 }
+
+header {
+    animation: topdown 1200ms;
+    transition-timing-function: ease-out;
+}
+
+main {
+    animation: downtop 1200ms backwards;
+    transition-timing-function: ease-out;
+}
+
+@keyframes topdown {
+    0% {
+        opacity: 0;
+        transform: translateY(-35px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes downtop {
+    0% {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* #F081 */
