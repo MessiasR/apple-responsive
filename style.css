@@ -38,31 +38,14 @@ img {
     height: auto;
 }
 
-
-.conjunto {
-    box-sizing: border-box;
-    display: inline-block;
-    width: 100%;
-}
-
-.apple {
-    display: inline-block;
-    width: 50%;
-    margin: 0 -32px 0;
-}
-
-.icon {
-    max-width: 2.5rem;
-    display: inline-block;
-    width: 50%;
-    
-}
-
 header {
     margin: 10rem 0 8rem;
     font-family: var(--ff-heading);
 
     text-align: center;
+
+    animation: topdown 1200ms;
+    transition-timing-function: ease-out;
 }
 
 header p {
@@ -79,7 +62,7 @@ header p {
 
 header h1 {
     font-weight: 800;
-    font-size: var(-fs-heading);
+    font-size: var(--fs-heading);
     line-height: 4.8rem;
 }
 
@@ -87,6 +70,9 @@ main {
     display: grid;
     gap: 3.2rem;
     margin-bottom: 10.5rem;
+
+    animation: downtop 1200ms backwards;
+    transition-timing-function: ease-out;
 }
 
 .card {
@@ -116,7 +102,7 @@ main {
     bottom: 5.2rem;
     left: 2.8rem;
 
-    font-size: var(--fs-heading);
+    font-size: 4rem;
     font-weight: 800;
 
 
@@ -140,16 +126,6 @@ main {
     align-items: center;
 }
 
-header {
-    animation: topdown 1200ms;
-    transition-timing-function: ease-out;
-}
-
-main {
-    animation: downtop 1200ms backwards;
-    transition-timing-function: ease-out;
-}
-
 @keyframes topdown {
     0% {
         opacity: 0;
@@ -171,6 +147,44 @@ main {
     100% {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@media (min-width: 700px) {
+    :root {
+        --fs-heading: 5.6rem;
+    }
+
+    .page {
+        max-width: 117rem;
+        padding: 0 5rem;
+    }
+
+    main {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 930px) {
+    main {
+        grid-template-areas: "A B B"
+        "C C D";
+    }
+
+    main div:nth-child(1) {
+        grid-area: A;
+    }
+
+    main div:nth-child(2) {
+        grid-area: B;
+    }
+
+    main div:nth-child(3) {
+        grid-area: C;
+    }
+
+    main div:nth-child(4) {
+        grid-area: D;
     }
 }
 
